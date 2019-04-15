@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {AppBar, Toolbar, Typography, Button, Grid, TextField, List, ListItem} from '@material-ui/core';
+import {AppBar, Toolbar, Typography, Button, Grid, TextField, Divider} from '@material-ui/core';
 import './App.css';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
@@ -14,6 +14,7 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider theme={theme}>
+        {/* sidebar */}
         <ul class="sidenav">
           <li><img src="https://via.placeholder.com/50"/></li>
           <li><img src="https://via.placeholder.com/50"/></li>
@@ -120,6 +121,7 @@ class App extends Component {
                 </Grid>
               </Grid>
             </Grid>
+            {/* about */}
             <Grid class="container2" style={{backgroundColor: "#f88339"}}>
               <Grid container direction="column" justify="center" alignItems="center">
                 <Typography variant="h3" color="secondary" style={{marginTop: "40px"}}>
@@ -131,7 +133,8 @@ class App extends Component {
                 <img src="https://via.placeholder.com/200" style={{marginTop: "40px"}}/>
               </Grid>
             </Grid>
-            <Grid class="container2">
+            {/* join now */}
+            <Grid style={{marginBottom: "70px"}}>
               <Grid container direction="column" justify="center" alignItems="center" style={{marginTop: "50px"}}> 
                 <Typography variant="h4">
                   Join Now!!
@@ -139,6 +142,44 @@ class App extends Component {
                 <Button variant="contained" color="primary" style={{color: "#ffffff", marginTop: "40px"}}>
                   Get Quotes
                 </Button>              
+              </Grid>
+            </Grid>
+            {/* footer */}
+            <hr/>
+            <Grid container direction="row" justify="space-evenly" alignItems="flex-start" style={{paddingTop: "50px", paddingBottom: "50px"}}>
+              <Grid item>
+                <Typography variant="subtitle2" style={{marginBottom: "10px"}}>
+                  Top Locations
+                </Typography>
+                <Typography variant="body1">
+                  Locations
+                </Typography>
+                <Typography variant="body1">
+                  Locations
+                </Typography>
+                <Typography variant="body1">
+                  Locations
+                </Typography>
+                <Typography variant="body1">
+                  Locations
+                </Typography>
+              </Grid>
+              <Grid item>
+              <Typography variant="subtitle2" style={{marginBottom: "10px"}}>
+                  Top Services
+                </Typography>
+                <Typography variant="body1">
+                  Services
+                </Typography>
+                <Typography variant="body1">
+                  Services
+                </Typography>
+                <Typography variant="body1">
+                  Services
+                </Typography>
+                <Typography variant="body1">
+                  Services
+                </Typography>
               </Grid>
             </Grid>
           </Grid>

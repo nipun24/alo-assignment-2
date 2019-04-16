@@ -195,8 +195,8 @@ class App extends Component {
                   Latest Reviews
                 </Typography>
               </Grid>
-              <Grid item justify="center" alignItems="center" direction="column">
-                <img src={images[this.state.reviewNumber]} onClick={this.onReviewClick}/>
+              <Grid item>
+                <img class="review" src={images[this.state.reviewNumber]} onClick={this.onReviewClick}/>
               </Grid>
             </Grid>
             {/* how we work */}

@@ -53,6 +53,8 @@ html, body {
 }
 
 .form{
+  padding-top: 10px;
+  padding-bottom: 10px;
   position: sticky;
   top: 10px;
   bottom: 20px;

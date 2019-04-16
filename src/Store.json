@@ -1,0 +1,43 @@
+[
+	{
+		"make": "mahindra",
+		"models": [
+			"NUVO SPORTS",
+			"MARAZZO",
+			"BOLERO",
+			"THAR",
+			"JEETO",
+			"MAJOR",
+			"E20",
+			"TUV300",
+			"KUV100",
+			"XUV500",
+			"LOGAN",
+			"EXTON",
+			"GENIO",
+			"VERITO",
+			"QUANTO",
+			"JEEP",
+			"XYLO ",
+			"SCORPIO"
+		]
+	},
+	{
+		"make": "ford",
+		"models":[
+			"Mondeo",
+			"Aspire",
+			"Escort",
+			"Freestyle",
+			"Endeavour",
+			"Fusion",
+			"FORD",
+			"EcoSport",
+			"Fiesta",
+			"Focus", 
+			"Figo",
+			"Ikon",
+			"Mustang"
+		]
+	}
+]

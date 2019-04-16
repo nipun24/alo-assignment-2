@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import {AppBar, Toolbar, Typography, Button, Grid, TextField, Divider} from '@material-ui/core';
+import ReactDOM from 'react-dom';
+import {AppBar, Toolbar, Typography, Button, Grid, TextField, Select, MenuItem, OutlinedInput, FormControl, InputLabel} from '@material-ui/core';
 import './App.css';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import Store from './Store.json'
 
 const theme = createMuiTheme({
   palette: {
@@ -11,6 +13,23 @@ const theme = createMuiTheme({
 });
 
 class App extends Component {
+  state = {
+    make:'',
+    model:'',
+    fuelType: '',
+    labelWidth1: 0,
+    labelWidth2:0,
+    labelWidth3: 0
+  }
+
+  componentDidMount() {
+    this.setState({
+      labelWidth1: ReactDOM.findDOMNode(this.InputLabelRef1).offsetWidth,
+      labelWidth2: ReactDOM.findDOMNode(this.InputLabelRef2).offsetWidth,
+      labelWidth3: ReactDOM.findDOMNode(this.InputLabelRef3).offsetWidth
+    });
+  }
+  
   render() {
     return (
       <MuiThemeProvider theme={theme}>
@@ -59,18 +78,101 @@ class App extends Component {
                   <img src="https://via.placeholder.com/300"/>
                 </Grid>
               </Grid>
-              {/* form */}
             </Grid>
           </Grid>
+          {/* form */}
           <Grid class="form" direction="row" justify="center" alignItems="center">
-                <TextField label="Make" margin="normal" variant="outlined" style={{marginRight: "5px"}}/>
-                <TextField label="Model" margin="normal" variant="outlined" style={{marginRight: "5px"}}/>
-                <TextField label="Fuel Type" margin="normal" variant="outlined" style={{marginRight: "5px"}}/>
-                <TextField label="Year of Buying" margin="normal" variant="outlined" style={{marginRight: "5px"}}/>
-                <Button variant="contained" color="primary" style={{color: "#ffffff"}}>
-                  Get Quotes
-                </Button>
-              </Grid>
+            <FormControl variant="outlined" style={{minWidth: "150px", marginRight: "5px"}}>
+              <InputLabel
+                ref={ref => {
+                  this.InputLabelRef1 = ref;
+                }}
+              >
+                Make
+              </InputLabel>
+              <Select
+                value={this.state.make}
+                onChange={e => this.setState({make: e.target.value})}
+                input={
+                  <OutlinedInput
+                    labelWidth={this.state.labelWidth1}
+                    name="Make"
+                  />
+                }
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                {
+                  Store.map(store => {
+                    return <MenuItem value={store.make}>{store.make}</MenuItem>
+                  })
+                }
+              </Select>
+            </FormControl>
+            <FormControl variant="outlined" style={{minWidth: "200px", marginRight: "5px"}}>
+              <InputLabel
+                ref={ref => {
+                  this.InputLabelRef2 = ref;
+                }}
+              >
+                Model
+              </InputLabel>
+              <Select
+                value={this.state.model}
+                onChange={e => this.setState({model: e.target.value})}
+                input={
+                  <OutlinedInput
+                    labelWidth={this.state.labelWidth2}
+                    name="Make"
+                  />
+                }
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                {
+                  Store.map(store => {
+                    var m
+                    if(store.make === this.state.make)
+                      m = store.models.map(model => {
+                        return <MenuItem value={model}>{model}</MenuItem>
+                    })
+                    return m                
+                  })
+                }
+              </Select>
+            </FormControl>
+            <FormControl variant="outlined" style={{minWidth: "120px", marginRight: "5px"}}>
+              <InputLabel
+                ref={ref => {
+                  this.InputLabelRef3 = ref;
+                }}
+              >
+                Fuel Type
+              </InputLabel>
+              <Select
+                value={this.state.fuelType}
+                onChange={e => this.setState({fuelType: e.target.value})}
+                input={
+                  <OutlinedInput
+                    labelWidth={this.state.labelWidth3}
+                  />
+                }
+              >
+                <MenuItem value="">
+                  <em>None</em>
+                </MenuItem>
+                <MenuItem value="petrol">Petrol</MenuItem>
+                <MenuItem value="diesel">Diesel</MenuItem>
+                <MenuItem value="cng">CNG</MenuItem>
+              </Select>
+            </FormControl>
+            <TextField label="Year of Buying" variant="outlined" style={{marginRight: "5px"}}/>
+            <Button variant="contained" color="primary" style={{color: "#ffffff"}}>
+              Get Quotes
+            </Button>
+          </Grid>
           {/* second section starts */}
           <Grid style={{paddingTop: "50px"}}>
             {/* reviews */}

@@ -53,7 +53,7 @@ class App extends Component {
                   <Typography variant="h5" color="secondary" style={{marginTop: "20px"}}>
                     dummy text
                   </Typography>
-                  <Button class="work"> How it works</Button>
+                  <Button class="work">How it works</Button>
                 </Grid>
                 <Grid item>
                   <img src="https://via.placeholder.com/300"/>
@@ -76,9 +76,12 @@ class App extends Component {
             {/* reviews */}
             <Grid container direction="column" justify="center" alignItems="center">
               <Grid item>
-                <Typography variant="h3">
+                <Typography variant="h3" style={{paddingBottom: "40px"}}>
                   Latest Reviews
                 </Typography>
+              </Grid>
+              <Grid item>
+              <img src="https://via.placeholder.com/900x400"/>
               </Grid>
             </Grid>
             {/* how we work */}

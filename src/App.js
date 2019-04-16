@@ -23,9 +23,10 @@ class App extends Component {
           <li><img src="https://via.placeholder.com/50"/></li>
           <li><img src="https://via.placeholder.com/50"/></li>
         </ul>
-        <Grid class="container">
+        
+        <Grid>
           {/* first section starts */}
-          <Grid class="container" style={{backgroundColor: "#f88339"}}>
+          <Grid class="contain1" style={{backgroundColor: "#f88339"}}>
             {/* app bar starts */}
             <AppBar class="navbar" position="static" color="default">
               <Toolbar>
@@ -59,7 +60,9 @@ class App extends Component {
                 </Grid>
               </Grid>
               {/* form */}
-              <Grid class="form" direction="row" justify="center" alignItems="center">
+            </Grid>
+          </Grid>
+          <Grid class="form" direction="row" justify="center" alignItems="center">
                 <TextField label="Make" margin="normal" variant="outlined" style={{marginRight: "5px"}}/>
                 <TextField label="Model" margin="normal" variant="outlined" style={{marginRight: "5px"}}/>
                 <TextField label="Fuel Type" margin="normal" variant="outlined" style={{marginRight: "5px"}}/>
@@ -68,10 +71,16 @@ class App extends Component {
                   Get Quotes
                 </Button>
               </Grid>
-            </Grid>
-          </Grid>
           {/* second section starts */}
-          <Grid class="container">
+          <Grid style={{paddingTop: "50px"}}>
+            {/* reviews */}
+            <Grid container direction="column" justify="center" alignItems="center">
+              <Grid item>
+                <Typography variant="h3">
+                  Latest Reviews
+                </Typography>
+              </Grid>
+            </Grid>
             {/* how we work */}
             <Grid container direction="column" justify="center" alignItems="center">
               <Grid item style={{marginTop: "40px"}}>
@@ -122,7 +131,7 @@ class App extends Component {
               </Grid>
             </Grid>
             {/* about */}
-            <Grid class="container2" style={{backgroundColor: "#f88339"}}>
+            <Grid style={{backgroundColor: "#f88339", padding:"50px 0 50px 0"}}>
               <Grid container direction="column" justify="center" alignItems="center">
                 <Typography variant="h3" color="secondary" style={{marginTop: "40px"}}>
                   About Settlemycar
@@ -130,7 +139,7 @@ class App extends Component {
                 <Typography variant="subtitle1" color="secondary" style={{marginTop: "20px"}}>
                   dummy paragraph
                 </Typography>
-                <img src="https://via.placeholder.com/200" style={{marginTop: "40px"}}/>
+                <img src="https://via.placeholder.com/200" style={{margin: "40px"}}/>
               </Grid>
             </Grid>
             {/* join now */}

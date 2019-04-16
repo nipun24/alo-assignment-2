@@ -78,10 +78,16 @@ html, body {
   .form {
     position: static;
   }
+  .sidenav{
+    display: none;
+  }
 }
 
-@media only screen and (max-height: 600px) {
+@media only screen and (max-height: 560px) {
   .form {
     position: static;
+  }
+  .sidenav{
+    display: none;
   }
 }

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import {AppBar, Toolbar, Typography, Button, Grid, TextField, Select, MenuItem, OutlinedInput, FormControl, InputLabel} from '@material-ui/core';
+import {AppBar, Toolbar, Typography, Button, Grid, TextField, Select, MenuItem, OutlinedInput, FormControl, InputLabel, Slide} from '@material-ui/core';
 import './App.css';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Store from './Store.json'
+import Store from './Store.json';
 
 const theme = createMuiTheme({
   palette: {
@@ -12,6 +12,10 @@ const theme = createMuiTheme({
   }
 });
 
+const images = [
+  "https://via.placeholder.com/900x400?text=first+review", "https://via.placeholder.com/900x400?text=second+review", "https://via.placeholder.com/900x400?text=third+review"
+]
+
 class App extends Component {
   state = {
     make:'',
@@ -19,7 +23,8 @@ class App extends Component {
     fuelType: '',
     labelWidth1: 0,
     labelWidth2:0,
-    labelWidth3: 0
+    labelWidth3: 0,
+    reviewNumber: 0
   }
 
   componentDidMount() {
@@ -28,6 +33,14 @@ class App extends Component {
       labelWidth2: ReactDOM.findDOMNode(this.InputLabelRef2).offsetWidth,
       labelWidth3: ReactDOM.findDOMNode(this.InputLabelRef3).offsetWidth
     });
+  }
+
+  onReviewClick = () => {
+    const reviewNumber = this.state.reviewNumber + 1;
+    if (reviewNumber >= images.length)
+      this.setState({reviewNumber: 0})
+    else
+      this.setState({reviewNumber});
   }
   
   render() {
@@ -45,7 +58,7 @@ class App extends Component {
         
         <Grid>
           {/* first section starts */}
-          <Grid class="contain1" style={{backgroundColor: "#f88339"}}>
+          <Grid style={{backgroundColor: "#f88339"}}>
             {/* app bar starts */}
             <AppBar class="navbar" position="static" color="default">
               <Toolbar>
@@ -75,7 +88,7 @@ class App extends Component {
                   <Button class="work">How it works</Button>
                 </Grid>
                 <Grid item>
-                  <img src="https://via.placeholder.com/300"/>
+                  <img src="https://via.placeholder.com/300" class="slide"/>
                 </Grid>
               </Grid>
             </Grid>
@@ -143,7 +156,7 @@ class App extends Component {
                 }
               </Select>
             </FormControl>
-            <FormControl variant="outlined" style={{minWidth: "120px", marginRight: "5px"}}>
+            <FormControl variant="outlined" style={{minWidth: "150px", marginRight: "5px"}}>
               <InputLabel
                 ref={ref => {
                   this.InputLabelRef3 = ref;
@@ -182,8 +195,8 @@ class App extends Component {
                   Latest Reviews
                 </Typography>
               </Grid>
-              <Grid item>
-              <img src="https://via.placeholder.com/900x400"/>
+              <Grid item justify="center" alignItems="center" direction="column">
+                <img src={images[this.state.reviewNumber]} onClick={this.onReviewClick}/>
               </Grid>
             </Grid>
             {/* how we work */}

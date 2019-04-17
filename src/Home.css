@@ -2,6 +2,7 @@ html, body {
   height: 100vh;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 .container1{
@@ -18,23 +19,21 @@ html, body {
   margin-top: 100px;
 }
 
-.navbar Button {
+.button-link-nav{
+  font-size: 14px;
+  font-weight: 550;
+  padding: 8px 12px 8px 12px;
+  text-decoration: none;
+  border-radius: 3px;
   margin: 10px;
   color: white;
+  font-family: Roboto,sans-serif;
 }
 
-.navbar Button:hover {
+.button-link-nav:hover{
+  text-decoration: none;
   background-color: white;
   color: black;
-}
-
-.navbar .brand {
-  border: none;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  font-weight: bold;
-  float: left;
 }
 
 .work {

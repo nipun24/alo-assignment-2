@@ -1,23 +1,15 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import {Link} from 'react-router-dom';
-import {AppBar, Toolbar, Typography, Button, Grid, TextField, Select, MenuItem, OutlinedInput, FormControl, InputLabel, Slide} from '@material-ui/core';
-import './Home.css';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-import Store from './Store.json';
-
-const theme = createMuiTheme({
-  palette: {
-    primary: { main: '#f88339' }, // Purple and green play nicely together.
-    secondary: { main: '#ffffff' }, // This is just green.A700 as hex.
-  }
-});
+import {AppBar, Toolbar, Typography, Button, Grid, TextField, Select, MenuItem, OutlinedInput, FormControl, InputLabel} from '@material-ui/core';
+import '../css/Home.css';
+import Store from '../assets/Store.json';
 
 const images = [
-  "https://via.placeholder.com/900x400?text=first+review", "https://via.placeholder.com/900x400?text=second+review", "https://via.placeholder.com/900x400?text=third+review"
+  "https://via.placeholder.com/900x400?text=first+review",
+  "https://via.placeholder.com/900x400?text=second+review", 
+  "https://via.placeholder.com/900x400?text=third+review"
 ]
-
-const loginLink = props => <Link to="/login" {...props} />
 
 class Home extends Component {
   state = {
@@ -48,22 +40,22 @@ class Home extends Component {
   
   render() {
     return (
-      <MuiThemeProvider theme={theme}>
+      <div>
         {/* sidebar */}
         <ul class="sidenav">
-          <li><img src="https://via.placeholder.com/50"/></li>
-          <li><img src="https://via.placeholder.com/50"/></li>
-          <li><img src="https://via.placeholder.com/50"/></li>
-          <li><img src="https://via.placeholder.com/50"/></li>
-          <li><img src="https://via.placeholder.com/50"/></li>
-          <li><img src="https://via.placeholder.com/50"/></li>
+          <li><img alt="" src="https://via.placeholder.com/50"/></li>
+          <li><img alt="" src="https://via.placeholder.com/50"/></li>
+          <li><img alt="" src="https://via.placeholder.com/50"/></li>
+          <li><img alt="" src="https://via.placeholder.com/50"/></li>
+          <li><img alt="" src="https://via.placeholder.com/50"/></li>
+          <li><img alt="" src="https://via.placeholder.com/50"/></li>
         </ul>
         
         <Grid>
           {/* first section starts */}
           <Grid style={{backgroundColor: "#f88339"}}>
             {/* app bar starts */}
-            <AppBar class="navbar" position="static" color="default">
+            <AppBar className="navbar" position="static" elevation={0}>
               <Toolbar>
                 <Grid container direction="row" justify="space-between">
                   <Grid item>
@@ -91,13 +83,13 @@ class Home extends Component {
                   <Button class="work">How it works</Button>
                 </Grid>
                 <Grid item>
-                  <img src="https://via.placeholder.com/300" class="slide"/>
+                  <img alt="" src="https://via.placeholder.com/300" class="slide"/>
                 </Grid>
               </Grid>
             </Grid>
           </Grid>
           {/* form */}
-          <Grid class="form" direction="row" justify="center" alignItems="center">
+          <Grid container class="form" direction="row" justify="center" alignItems="center">
             <FormControl variant="outlined" style={{minWidth: "150px", marginRight: "5px"}}>
               <InputLabel
                 ref={ref => {
@@ -121,7 +113,7 @@ class Home extends Component {
                 </MenuItem>
                 {
                   Store.map(store => {
-                    return <MenuItem value={store.make}>{store.make}</MenuItem>
+                    return <MenuItem value={store.make} key={store.make}>{store.make}</MenuItem>
                   })
                 }
               </Select>
@@ -199,7 +191,7 @@ class Home extends Component {
                 </Typography>
               </Grid>
               <Grid item>
-                <img class="review" src={images[this.state.reviewNumber]} onClick={this.onReviewClick}/>
+                <img alt="" class="review" src={images[this.state.reviewNumber]} onClick={this.onReviewClick}/>
               </Grid>
             </Grid>
             {/* how we work */}
@@ -211,13 +203,13 @@ class Home extends Component {
               </Grid>
               <Grid container direction="row" justify="space-evenly" alignItems="center" style={{marginTop: "40px"}}>
                 <Grid item direction="column" alignItems="center">
-                  <img src="https://via.placeholder.com/150"/>
+                  <img alt="" src="https://via.placeholder.com/150"/>
                 </Grid>
                 <Grid item direction="column" alignItems="center">
-                  <img src="https://via.placeholder.com/150"/>
+                  <img alt="" src="https://via.placeholder.com/150"/>
                 </Grid>
                 <Grid item direction="column" alignItems="center">
-                  <img src="https://via.placeholder.com/150"/>
+                  <img alt="" src="https://via.placeholder.com/150"/>
                 </Grid>
               </Grid>
             </Grid>
@@ -230,24 +222,24 @@ class Home extends Component {
               </Grid>
               <Grid container direction="row" justify="space-evenly" alignItems="center" style={{marginTop: "40px"}}>
                 <Grid item direction="column" alignItems="center">
-                  <img src="https://via.placeholder.com/150"/>
+                  <img alt="" src="https://via.placeholder.com/150"/>
                 </Grid>
                 <Grid item direction="column" alignItems="center">
-                  <img src="https://via.placeholder.com/150"/>
+                  <img alt="" src="https://via.placeholder.com/150"/>
                 </Grid>
                 <Grid item direction="column" alignItems="center">
-                  <img src="https://via.placeholder.com/150"/>
+                  <img alt="" src="https://via.placeholder.com/150"/>
                 </Grid>
               </Grid>
               <Grid container direction="row" justify="space-evenly" alignItems="center" style={{marginTop: "40px"}}>
                 <Grid item direction="column" alignItems="center">
-                  <img src="https://via.placeholder.com/150"/>
+                  <img alt="" src="https://via.placeholder.com/150"/>
                 </Grid>
                 <Grid item direction="column" alignItems="center">
-                  <img src="https://via.placeholder.com/150"/>
+                  <img alt="" src="https://via.placeholder.com/150"/>
                 </Grid>
                 <Grid item direction="column" alignItems="center">
-                  <img src="https://via.placeholder.com/150"/>
+                  <img alt="" src="https://via.placeholder.com/150"/>
                 </Grid>
               </Grid>
             </Grid>
@@ -260,7 +252,7 @@ class Home extends Component {
                 <Typography variant="subtitle1" color="secondary" style={{marginTop: "20px"}}>
                   dummy paragraph
                 </Typography>
-                <img src="https://via.placeholder.com/200" style={{margin: "40px"}}/>
+                <img alt="" src="https://via.placeholder.com/200" style={{margin: "40px"}}/>
               </Grid>
             </Grid>
             {/* join now */}
@@ -314,7 +306,7 @@ class Home extends Component {
             </Grid>
           </Grid>
         </Grid>
-      </MuiThemeProvider>
+      </div>
     );
   }
 }

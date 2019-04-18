@@ -19,10 +19,16 @@ html, body {
   margin-top: 100px;
 }
 
+.navbar{
+  box-shadow: 10px 10px;
+  background-color: #f88339;
+  box-shadow: 0;
+}
+
 .button-link-nav{
   font-size: 14px;
   font-weight: 550;
-  padding: 8px 12px 8px 12px;
+  padding: 10px 10px 10px 10px;
   text-decoration: none;
   border-radius: 3px;
   margin: 10px;

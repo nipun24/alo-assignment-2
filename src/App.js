@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch} from "react-router-dom";
+import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom";
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Home from './containers/Home';
 import Login from './containers/Login';
 import Quotes from './containers/Quotes';
+import ContextStore from './ContextStore';
 
 const theme = createMuiTheme({
   typography: {
@@ -16,17 +17,49 @@ const theme = createMuiTheme({
 });
 
 class App extends Component {
+  state = {
+    car: {
+      make: "",
+      model: "",
+      fuelType: "",
+      year: ""
+    },
+    quote: {
+      pin: "",
+      type: {
+        what: "",
+        info: ""
+      },
+    }
+  }
+
+  setCar = (car) => {
+    this.setState({car});
+  }
+
+  setQuotes = (quote) => {
+    console.log(quote)
+    this.setState({quote})
+  }
+
   render() {
     return(
-      <MuiThemeProvider theme={theme}>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/quotes" component={Quotes} />
-        </Switch>
-      </BrowserRouter>
-      </MuiThemeProvider>
+      <ContextStore.Provider value={{
+        car: this.state.car,
+        quote: this.state.quote,
+        setCar: this.setCar,
+        setQuotes: this.setQuotes
+      }}>
+        <MuiThemeProvider theme={theme}>
+          <BrowserRouter>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/quotes" component={Quotes} />
+            </Switch>
+          </BrowserRouter>
+        </MuiThemeProvider>
+        </ContextStore.Provider>
     );
   }
 }

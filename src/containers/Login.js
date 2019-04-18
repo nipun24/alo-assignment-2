@@ -4,8 +4,11 @@ import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 
 const styles = {
+    root: {
+        height: "100vh"
+    },
     grid: {
-        height: "105vh",
+        height: "100vh",
         wigth: "100vw",
     },
     sidenav: {
@@ -51,7 +54,7 @@ class Login extends Component {
     render() {
         const {classes} = this.props;
         return(
-            <div>
+            <div className={classes.root}>
                 <ul className={classes.sidenav}>
                     <li><img alt="" src="https://via.placeholder.com/50"/></li>
                     <li><img alt="" src="https://via.placeholder.com/50"/></li>

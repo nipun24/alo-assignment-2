@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import {AppBar, Toolbar, Typography, Button, Grid, TextField, Select, MenuItem, OutlinedInput, FormControl, InputLabel} from '@material-ui/core';
 import '../css/Home.css';
 import Store from '../assets/Store.json';
+import ContextStore from '../ContextStore';
 
 const images = [
   "https://via.placeholder.com/900x400?text=first+review",
@@ -16,11 +17,14 @@ class Home extends Component {
     make:'',
     model:'',
     fuelType: '',
+    year: '',
     labelWidth1: 0,
     labelWidth2:0,
     labelWidth3: 0,
     reviewNumber: 0
   }
+
+  static contextType = ContextStore;
 
   componentDidMount() {
     this.setState({
@@ -36,6 +40,13 @@ class Home extends Component {
       this.setState({reviewNumber: 0})
     else
       this.setState({reviewNumber});
+  }
+
+  getQuotes = () => {
+    const {make,model,fuelType,year} = this.state;
+    const car = Object.assign({}, car, {make, model, fuelType, year});
+    this.context.setCar(car);
+    this.props.history.push('/quotes')
   }
   
   render() {
@@ -176,8 +187,8 @@ class Home extends Component {
                 <MenuItem value="cng">CNG</MenuItem>
               </Select>
             </FormControl>
-            <TextField label="Year of Buying" variant="outlined" style={{marginRight: "5px"}}/>
-            <Button variant="contained" color="primary" style={{color: "#ffffff"}} component={Link} to="/quotes">
+            <TextField label="Year of Buying" variant="outlined" style={{marginRight: "5px"}} onChange={(e) => this.setState({year: e.target.value})} />
+            <Button variant="contained" color="primary" style={{color: "#ffffff"}} onClick={this.getQuotes}>
               Get Quotes
             </Button>
           </Grid>

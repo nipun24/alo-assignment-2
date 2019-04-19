@@ -24,7 +24,7 @@ class Garages extends Component {
             <Grid className={classes.root} container direction="column">
                 {Shops.map(shop => {
                     return(
-                        <Paper className={classes.paper} key={shop.name}>
+                        <Paper className={classes.paper} key={shop.name} onClick={e => console.log(e.target.value)}>
                             <Grid container direction="row" justify="space-between" alignItems="center">
                                 <Grid item direction="row">
                                     <Grid container direction="row">

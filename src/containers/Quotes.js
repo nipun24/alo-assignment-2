@@ -74,7 +74,7 @@ class Quotes extends Component {
             this.setState({next: "finish", activeStep})
         } 
         else if(activeStep === 2){
-            this.props.history.push('/')
+            this.props.history.push('/verify')
         }
         else{
             activeStep++;

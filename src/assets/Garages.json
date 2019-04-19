@@ -1,0 +1,35 @@
+[
+    {
+        "name": "Newcastle Garage Services",
+        "location": "newcastle upon tyne",
+        "image": "https://via.placeholder.com/70",
+        "jobsCompleted": 0,
+        "stars": 0,
+        "status": "waiting"
+    },
+    {
+        "name": "hunter auto services ltd.",
+        "location": "whitely road",
+        "image": "https://via.placeholder.com/70",
+        "jobsCompleted": 4,
+        "stars": 5,
+        "status": "waiting"
+    },
+    {
+        "name": "duffys motors",
+        "location": "gates hear",
+        "image": "https://via.placeholder.com/70",
+        "jobsCompleted": 407,
+        "stars": 5,
+        "status": "waiting"
+    },
+    {
+        "name": "davies autocare",
+        "location": "blaydon on tyne",
+        "image": "https://via.placeholder.com/70",
+        "jobsCompleted": 4,
+        "stars": 5,
+        "status": "waiting"
+    }
+    
+]

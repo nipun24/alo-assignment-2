@@ -5,6 +5,8 @@ import Home from './containers/Home';
 import Login from './containers/Login';
 import Quotes from './containers/Quotes';
 import ContextStore from './ContextStore';
+import Verify from './containers/Verify';
+import Garages from  './containers/Garages';
 
 const theme = createMuiTheme({
   typography: {
@@ -56,6 +58,8 @@ class App extends Component {
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/quotes" component={Quotes} />
+              <Route exact path="/verify" component={Verify} />
+              <Route exact path="/garages" component={Garages} />
             </Switch>
           </BrowserRouter>
         </MuiThemeProvider>

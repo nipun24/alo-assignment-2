@@ -7,30 +7,46 @@ import StarRatings from 'react-star-ratings';
 
 const styles = {
     root: {
-        height: "100%",
-        width: "100%"
+        height: "100vh",
+        width: "100vw",
+        overflow: "auto",
+        flexDirection: "column",
+        display: "flex",
+        backgroundColor: "#f88339"
     },
     paper: {
         margin: "10px 10px 0px 10px",
         padding: "10px"
+    },
+    shopName: {
+        "&:hover": {
+            cursor: "pointer",
+            textDecoration: "underline",
+            color: "#f88339"
+        }
     }
 }
 
 class Garages extends Component {
+
+    handleGarage = (garage) => {
+        console.log(garage)
+    }
+
     render() {
         const {classes} = this.props;
 
         return(
-            <Grid className={classes.root} container direction="column">
+            <Grid className={classes.root}>
                 {Shops.map(shop => {
                     return(
-                        <Paper className={classes.paper} key={shop.name} onClick={e => console.log(e.target.value)}>
+                        <Paper className={classes.paper} key={shop.name} onClick={() => this.handleGarage(shop)}>
                             <Grid container direction="row" justify="space-between" alignItems="center">
                                 <Grid item direction="row">
                                     <Grid container direction="row">
                                         <img alt="" src={shop.image} />
                                         <Grid style={{marginLeft: "20px"}} >
-                                            <Typography variant="h5">{shop.name}</Typography>
+                                            <Typography variant="h5" className={classes.shopName}>{shop.name}</Typography>
                                             <Typography variant="body2">{shop.location}</Typography>
                                         </Grid>
                                     </Grid>
@@ -49,7 +65,7 @@ class Garages extends Component {
                                                 starDimension="20px"
                                                 starSpacing="1px"
                                             />
-                                            <Typography>{shop.stars}</Typography>
+                                            <Typography style={{marginLeft: "10px"}} variant="h6">{shop.stars}</Typography>
                                         </Grid>
                                     </div>
                                 }

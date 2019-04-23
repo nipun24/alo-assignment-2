@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
-import { Grid, Typography, AppBar, Toolbar, Card, CardActionArea, CardContent, CardMedia } from '@material-ui/core';
+import { Grid, Typography, AppBar, Toolbar, Card, CardActionArea, CardContent, CardMedia, 
+    CardActions, Button } from '@material-ui/core';
 
 const styles = {
     navItem: {
@@ -64,7 +65,7 @@ const topics = [
 const BlogItem = (props) => {
     const {heading, img, name, date} = props.topic
     return(
-        <Card style={{maxWidth: "400px"}}>
+        <Card style={{maxWidth: "400px", marginRight: "20px", marginBottom: "20px"}}>
             <CardActionArea>
                 <CardMedia
                     style={{width: "400px", height: "400px"}}
@@ -72,10 +73,13 @@ const BlogItem = (props) => {
                 />
                 <CardContent>
                 <Typography variant="h5">{heading}</Typography>
-                {date}
-                {name}
+                <Typography>{date}</Typography>
+                <Typography>{name}</Typography>
                 </CardContent>
             </CardActionArea>
+            <CardActions>
+                <Button color="primary">read more</Button>
+            </CardActions>
         </Card>
     );
 }

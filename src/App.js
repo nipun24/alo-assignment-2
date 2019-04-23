@@ -56,12 +56,12 @@ class App extends Component {
         <MuiThemeProvider theme={theme}>
           <BrowserRouter>
             <Switch>
-              <Route exact path="/" component={Home} />
+              {/* <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/quotes" component={Quotes} />
               <Route exact path="/verify" component={Verify} />
-              <Route exact path="/garages" component={Garages} />
-              <Route exact path="/blog" component={Blog} />
+              <Route exact path="/garages" component={Garages} /> */}
+              <Route exact path="/" component={Blog} />
             </Switch>
           </BrowserRouter>
         </MuiThemeProvider>

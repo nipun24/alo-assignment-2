@@ -8,6 +8,7 @@ import ContextStore from './ContextStore';
 import Verify from './containers/Verify';
 import Garages from  './containers/Garages';
 import Blog from './containers/Blog';
+import BlogContent from './containers/BlogContent';
 
 const theme = createMuiTheme({
   typography: {
@@ -56,12 +57,13 @@ class App extends Component {
         <MuiThemeProvider theme={theme}>
           <BrowserRouter>
             <Switch>
-              {/* <Route exact path="/" component={Home} />
+              <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/quotes" component={Quotes} />
               <Route exact path="/verify" component={Verify} />
-              <Route exact path="/garages" component={Garages} /> */}
-              <Route exact path="/" component={Blog} />
+              <Route exact path="/garages" component={Garages} />
+              <Route exact path="/blog" component={Blog} />
+              <Route exact path="/blog/:content" component={BlogContent} />
             </Switch>
           </BrowserRouter>
         </MuiThemeProvider>

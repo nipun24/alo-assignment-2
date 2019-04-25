@@ -69,9 +69,12 @@ class Home extends Component {
             <AppBar className="navbar" position="static" elevation={0}>
               <Toolbar>
                 <Grid container direction="row" justify="space-between">
-                  <Grid item>
-                    <Typography variant="h6" color="secondary" style={{marginTop: "10px"}}>
+                  <Grid className="navlinkContainer">
+                    <Typography variant="h6" color="secondary" >
                       Settlemycar
+                    </Typography>
+                    <Typography onClick={()=> this.props.history.push("/blog")} className="navlink" variant="subtitle1" color="secondary" style={{marginLeft: "100px"}}>
+                      Blog
                     </Typography>
                   </Grid>
                   <Grid item style={{margin: "10px"}}> 

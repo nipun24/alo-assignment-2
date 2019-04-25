@@ -66,7 +66,7 @@ const BlogItem = (props) => {
     const {heading, img, name, date} = props.topic
     return(
         <Card style={{maxWidth: "400px", marginRight: "20px", marginBottom: "20px"}}>
-            <CardActionArea>
+            <CardActionArea onClick={() => props.onClick(props.topic)}>
                 <CardMedia
                     style={{width: "400px", height: "400px"}}
                     image={img}
@@ -78,15 +78,19 @@ const BlogItem = (props) => {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button color="primary">read more</Button>
+                <Button color="primary" onClick={() => props.onClick(props.topic)}>read more</Button>
             </CardActions>
         </Card>
     );
 }
 
 class Blog extends Component {
-    render() {
 
+    handleClick = (topic) => {
+        this.props.history.push(`/blog/${topic.heading}`)
+    }
+
+    render() {
         const {classes} = this.props
 
         return(
@@ -113,7 +117,7 @@ class Blog extends Component {
                 <div className={classes.cardHolder}>
                 {
                     topics.map(topic => {
-                        return <BlogItem topic={topic} />
+                        return <BlogItem topic={topic} onClick={this.handleClick}/>
                     })
                 }
                 </div>

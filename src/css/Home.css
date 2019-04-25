@@ -25,6 +25,18 @@ html, body {
   box-shadow: 0;
 }
 
+.navlinkContainer{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.navlink:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .button-link-nav{
   font-size: 14px;
   font-weight: 550;

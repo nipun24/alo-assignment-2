@@ -9,6 +9,7 @@ import Verify from './containers/Verify';
 import Garages from  './containers/Garages';
 import Blog from './containers/Blog';
 import BlogContent from './containers/BlogContent';
+import Account from './containers/Account';
 
 const theme = createMuiTheme({
   typography: {
@@ -63,6 +64,7 @@ class App extends Component {
               <Route exact path="/verify" component={Verify} />
               <Route exact path="/garages" component={Garages} />
               <Route exact path="/blog" component={Blog} />
+              <Route exact path="/account" component={Account} />
               <Route exact path="/blog/:content" component={BlogContent} />
             </Switch>
           </BrowserRouter>

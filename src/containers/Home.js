@@ -76,6 +76,9 @@ class Home extends Component {
                     <Typography onClick={()=> this.props.history.push("/blog")} className="navlink" variant="subtitle1" color="secondary" style={{marginLeft: "100px"}}>
                       Blog
                     </Typography>
+                    <Typography onClick={()=> this.props.history.push("/account")} className="navlink" variant="subtitle1" color="secondary" style={{marginLeft: "100px"}}>
+                      My Account
+                    </Typography>
                   </Grid>
                   <Grid item style={{margin: "10px"}}> 
                     <Button component={Link} to='/login' style={{backgroundColor: "#e05e0d"}} class="button-link-nav">SIGN UP</Button>

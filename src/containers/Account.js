@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
-import { AppBar, Toolbar, IconButton, Typography, Button, Grid, Paper } from '@material-ui/core';
+import { AppBar, Toolbar, IconButton, Typography, Button, Grid, Paper, Chip } from '@material-ui/core';
 import {AccountCircle} from '@material-ui/icons';
 
 const styles = {
@@ -30,6 +30,7 @@ const styles = {
         alignItems: "center",
         margin: 10,
         padding: 5,
+        borderRadius: 3,
         "&:hover": {
             cursor: "pointer",
             textDecoration: "underline"
@@ -66,14 +67,14 @@ const Cars = (props) => {
                     </Grid>
                 </Grid> 
                 <Paper style={{width: "100%", marginTop: "50px", padding: "20px"}}>
-                <Grid container justify="space-around">
-                        <img src="https://via.placeholder.com/200"/>
-                        <Grid>
-                            <Typography variant="h5">No cars</Typography>
-                            <Typography>Keep track of all information regarding your car, add your car</Typography>
-                            <Button variant="contained" color="primary" style={{color: "white"}}>Create Car</Button>
-                        </Grid>
-                </Grid>
+                    <Grid container justify="space-around">
+                            <img src="https://via.placeholder.com/200"/>
+                            <Grid>
+                                <Typography variant="h5">No cars</Typography>
+                                <Typography>Keep track of all information regarding your car, add your car</Typography>
+                                <Button variant="contained" color="primary" style={{color: "white"}}>Create Car</Button>
+                            </Grid>
+                    </Grid>
                 </Paper>           
             </Grid>
         );
@@ -86,9 +87,37 @@ const Cars = (props) => {
 const Jobs = (props) => {
     if(props.display){
         return(
-            <div>
-                jobs
-            </div>
+            <Grid container>
+                <Paper style={{margin: "50px",width: "100%", padding: "20px"}} >
+                    <Grid container direction="row" alignItems="center" justify="space-between" >
+                        <Typography variant="h4">Latest activity</Typography>
+                        <Grid item>
+                            <Typography style={{color: "#2196f3", cursor: "pointer"}}>View all jobs</Typography>
+                        </Grid>
+                    </Grid>
+                    <Grid container direction="row" justify="space-between">
+                        <Grid item>
+                            <Typography 
+                                variant="h6" 
+                                style={{color: "#2196f3", textDecoration: "underline", cursor: "pointer"}}
+                            >
+                                Clutch Replacement
+                            </Typography>
+                            <Typography>Your quote: Rs.580/-</Typography>
+                            <Typography>Lion Garage Service Ltd.</Typography>
+                        </Grid>
+                        <Grid item>
+                            <Grid container direction="column" justify="space-between" alignItems="center">
+                                <Chip label="make - model" color="primary" style={{color: "white"}}/>
+                                <Grid item style={{marginTop: "10px"}}>
+                                    <Button color="primary" style={{marginRight: "10px"}}>View</Button>
+                                    <Button variant="contained" color="primary" style={{color: "white"}}>Leave Feedback</Button>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Paper>
+            </Grid>
         );
     }
     else{
@@ -156,11 +185,11 @@ class Account extends Component {
                     <Toolbar>
                         <div className={classes.secNav}>
                             <div className={classes.secNavButton} style={this.state.carsTab} onClick={()=>this.tabClick("cars")}>
-                                <img src="https://via.placeholder.com/40" />
+                                <img src="https://via.placeholder.com/40" style={{borderRadius: "3px"}} />
                                 <Typography variant="caption">Cars</Typography>
                             </div>
                             <div className={classes.secNavButton} style={this.state.jobsTab} onClick={()=>this.tabClick("jobs")}>
-                                <img src="https://via.placeholder.com/40" />
+                                <img src="https://via.placeholder.com/40" style={{borderRadius: "3px"}} />
                                 <Typography variant="caption">Jobs</Typography>
                             </div>
                         </div>

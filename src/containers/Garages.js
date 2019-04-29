@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
-import { Grid, Typography, Paper } from '@material-ui/core';
+import { Grid, Typography, Paper, Button } from '@material-ui/core';
 import Shops from '../assets/Garages.json';
 import StarRatings from 'react-star-ratings';
+import ContextStore from '../ContextStore';
 
 const styles = {
     root: {
@@ -16,7 +17,7 @@ const styles = {
     },
     paper: {
         margin: "10px 10px 0px 10px",
-        padding: "10px"
+        padding: "10px",
     },
     shopName: {
         "&:hover": {
@@ -24,13 +25,21 @@ const styles = {
             textDecoration: "underline",
             color: "#f88339"
         }
+    },
+    choose: {
+        display: "flex",
+        justifyContent: "center",
+        width: "30%"
     }
 }
 
 class Garages extends Component {
 
-    handleGarage = (garage) => {
-        console.log(garage)
+    static contextType = ContextStore;
+
+    handleChoose = (s) => {
+        this.context.setGarage(s);
+        this.props.history.push("/choose");
     }
 
     render() {
@@ -40,7 +49,7 @@ class Garages extends Component {
             <Grid className={classes.root}>
                 {Shops.map(shop => {
                     return(
-                        <Paper className={classes.paper} key={shop.name} onClick={() => this.handleGarage(shop)}>
+                        <Paper className={classes.paper} key={shop.name}>
                             <Grid container direction="row" justify="space-between" alignItems="center">
                                 <Grid item direction="row">
                                     <Grid container direction="row">
@@ -77,9 +86,15 @@ class Garages extends Component {
                                         </Typography>
                                     </div>
                                     :
-                                    <div>
-                                        <Typography>Quote Receiver</Typography>
-                                        <Typography>The garage has sent a tailoured quote</Typography>
+                                    <div className={classes.choose}>
+                                        <Button 
+                                            variant="contained" 
+                                            color="primary" 
+                                            style={{color: "white"}}
+                                            onClick={() => this.handleChoose(shop)}
+                                        >
+                                            Choose garage
+                                        </Button>
                                     </div>
                                 }
                             </Grid>

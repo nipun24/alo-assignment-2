@@ -10,6 +10,7 @@ import Garages from  './containers/Garages';
 import Blog from './containers/Blog';
 import BlogContent from './containers/BlogContent';
 import Account from './containers/Account';
+import Choose from './containers/Choose';
 
 const theme = createMuiTheme({
   typography: {
@@ -35,6 +36,14 @@ class App extends Component {
         what: "",
         info: ""
       },
+    },
+    garage: {
+      name: "",
+      location: "",
+      image: "",
+      jobsCompleted: 0,
+      stars: 0,
+      status: "",
     }
   }
 
@@ -43,8 +52,11 @@ class App extends Component {
   }
 
   setQuotes = (quote) => {
-    console.log(quote)
     this.setState({quote})
+  }
+  
+  setGarage = (garage) => {
+    this.setState({garage})
   }
 
   render() {
@@ -52,8 +64,10 @@ class App extends Component {
       <ContextStore.Provider value={{
         car: this.state.car,
         quote: this.state.quote,
+        garage: this.state.garage,
         setCar: this.setCar,
-        setQuotes: this.setQuotes
+        setQuotes: this.setQuotes,
+        setGarage: this.setGarage
       }}>
         <MuiThemeProvider theme={theme}>
           <BrowserRouter>
@@ -66,10 +80,11 @@ class App extends Component {
               <Route exact path="/blog" component={Blog} />
               <Route exact path="/account" component={Account} />
               <Route exact path="/blog/:content" component={BlogContent} />
+              <Route exact path="/choose" component={Choose} />
             </Switch>
           </BrowserRouter>
         </MuiThemeProvider>
-        </ContextStore.Provider>
+      </ContextStore.Provider>
     );
   }
 }

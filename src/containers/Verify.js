@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
-import { Grid, Paper, Typography, TextField, Button } from '@material-ui/core';
+import { Grid, Paper, Typography, TextField, Button, AppBar, Toolbar } from '@material-ui/core';
 
 const styles = {
     root: {
@@ -25,7 +25,19 @@ class Verify extends Component {
         const {classes} = this.props;
 
         return(
-            <Grid className={classes.root} container justify="center" alignItems="center">
+            <div>
+            <AppBar position="static" elevation={0}>
+                <Toolbar>
+                    <Grid container direction="row" justify="flex-start">
+                        <Grid item>
+                            <Typography variant="h6" color="secondary" >
+                            Settlemycar
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                </Toolbar>
+            </AppBar>
+            <Grid className={classes.root} container justify="center" alignItems="center" direction="column">
                 <Grid item>
                     <Paper style={{padding: "40px", maxWidth: "400px"}} >
                         <Typography variant="h5">
@@ -43,7 +55,47 @@ class Verify extends Component {
                         </Grid>
                     </Paper>
                 </Grid> 
+                {/* footer */}
+                <hr style={{marginTop: "40px",width: "100%"}}/>
+                <Grid container direction="row" justify="space-evenly" alignItems="flex-start" style={{paddingTop: "50px", paddingBottom: "50px"}}>
+                
+                <Grid item>
+                    <Typography variant="subtitle2" style={{marginBottom: "10px"}}>
+                    Top Locations
+                    </Typography>
+                    <Typography variant="body1">
+                    Locations
+                    </Typography>
+                    <Typography variant="body1">
+                    Locations
+                    </Typography>
+                    <Typography variant="body1">
+                    Locations
+                    </Typography>
+                    <Typography variant="body1">
+                    Locations
+                    </Typography>
+                </Grid>
+                <Grid item>
+                <Typography variant="subtitle2" style={{marginBottom: "10px"}}>
+                    Top Services
+                    </Typography>
+                    <Typography variant="body1">
+                    Services
+                    </Typography>
+                    <Typography variant="body1">
+                    Services
+                    </Typography>
+                    <Typography variant="body1">
+                    Services
+                    </Typography>
+                    <Typography variant="body1">
+                    Services
+                    </Typography>
+                </Grid>
+                </Grid>
             </Grid>
+            </div>
         );
     }
 

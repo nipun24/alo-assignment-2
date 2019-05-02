@@ -66,7 +66,7 @@ class Home extends Component {
           {/* first section starts */}
           <Grid style={{backgroundColor: "#f88339"}}>
             {/* app bar starts */}
-            <AppBar className="navbar" position="static" elevation={0}>
+            <AppBar position="static" elevation={0}>
               <Toolbar>
                 <Grid container direction="row" justify="space-between">
                   <Grid className="navlinkContainer">
@@ -304,7 +304,7 @@ class Home extends Component {
                 </Typography>
               </Grid>
               <Grid item>
-              <Typography variant="subtitle2" style={{marginBottom: "10px"}}>
+                <Typography variant="subtitle2" style={{marginBottom: "10px"}}>
                   Top Services
                 </Typography>
                 <Typography variant="body1">

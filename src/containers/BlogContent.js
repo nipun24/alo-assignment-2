@@ -18,17 +18,30 @@ const styles = {
 
 class BlogContent extends Component {
 
+    state = {
+        post: ""
+    }
+
+    componentDidMount() {
+        fetch("https://public-api.wordpress.com/rest/v1/sites/settlemy.car.blog/posts")
+        .then(res => res.json())
+        .then(res => {
+            res.posts.map(post => {
+                if(post.ID.toString() === this.props.match.params.content){
+                    this.setState({post})
+                }
+            })
+        })
+    }
+    
     render(){
-        const {classes} = this.props
-        console.log(this.props.match.params.content)
+        const {classes} = this.props;
         return(
             <div>
                 <div className={classes.divHead}>
-                    {this.props.match.params.content}
+                    {this.state.post.title}
                 </div>
-                <p className={classes.content}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam gravida fringilla orci viverra accumsan. Praesent bibendum dictum diam, a mattis augue. Cras tellus ipsum, mollis non orci et, rhoncus tincidunt dolor. Nunc et dictum quam, nec placerat magna. Nullam faucibus felis turpis, a consectetur nisl pellentesque id. Aenean ultrices dictum lectus in mattis. Aliquam id magna quam.
-                </p>
+                <div style={{margin: "20px"}} dangerouslySetInnerHTML={{ __html: this.state.post.content}} />
             </div>
         );
     }

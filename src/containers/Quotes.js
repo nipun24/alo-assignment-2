@@ -1,8 +1,8 @@
 import React,{Component} from 'react'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { Stepper, Step, StepLabel, TextField, Grid, Card, CardMedia, CardContent, 
-    Typography, CardActionArea, Button, FormControlLabel, Radio, RadioGroup, Paper} from '@material-ui/core';
+import { Stepper, Step, StepLabel, TextField, Grid, Card, CardMedia, CardContent, AppBar,
+    Typography, CardActionArea, Button, FormControlLabel, Radio, RadioGroup, Paper, Toolbar} from '@material-ui/core';
 import ContextStore from '../ContextStore';
 
 const styles = {
@@ -106,7 +106,7 @@ class Quotes extends Component {
         const {classes} = this.props;
         if(this.state.activeStep === 0){
             return(
-                <Grid container direction="column" alignItems="center" style={{marginTop: "50px", height: "70%"}}>
+                <Grid container direction="column" alignItems="center" style={{marginTop: "50px"}}>
                     <TextField 
                         variant="outlined"
                         label="Enter PIN code"
@@ -224,6 +224,17 @@ class Quotes extends Component {
         const {classes} = this.props;
         return(
             <div className={classes.root}>
+                <AppBar position="static" elevation={0}>
+                    <Toolbar>
+                        <Grid container direction="row" justify="flex-start">
+                            <Grid item>
+                                <Typography variant="h6" color="secondary" >
+                                Settlemycar
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                    </Toolbar>
+                </AppBar>
                 <Stepper activeStep={this.state.activeStep}>
                     <Step >
                         <StepLabel>Enter PIN code</StepLabel>
@@ -236,7 +247,7 @@ class Quotes extends Component {
                     </Step>
                 </Stepper>
                 {this.renderView()}
-                <Grid container direction="row" justify="center" alignItems="flex-end">
+                <Grid container direction="row" justify="center" alignItems="flex-end" style={{marginTop: "20px"}}>
                         <Button    
                         disabled={this.state.activeStep === 0} 
                         color="primary"
@@ -252,6 +263,44 @@ class Quotes extends Component {
                         >
                             {this.state.next}
                         </Button>
+                </Grid>
+                {/* footer */}
+                <hr/>
+                <Grid container direction="row" justify="space-evenly" alignItems="flex-start" style={{paddingTop: "50px", paddingBottom: "50px"}}>
+                    <Grid item>
+                        <Typography variant="subtitle2" style={{marginBottom: "10px"}}>
+                        Top Locations
+                        </Typography>
+                        <Typography variant="body1">
+                        Locations
+                        </Typography>
+                        <Typography variant="body1">
+                        Locations
+                        </Typography>
+                        <Typography variant="body1">
+                        Locations
+                        </Typography>
+                        <Typography variant="body1">
+                        Locations
+                        </Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="subtitle2" style={{marginBottom: "10px"}}>
+                        Top Services
+                        </Typography>
+                        <Typography variant="body1">
+                        Services
+                        </Typography>
+                        <Typography variant="body1">
+                        Services
+                        </Typography>
+                        <Typography variant="body1">
+                        Services
+                        </Typography>
+                        <Typography variant="body1">
+                        Services
+                        </Typography>
+                    </Grid>
                 </Grid>
             </div>
         );

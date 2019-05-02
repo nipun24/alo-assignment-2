@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
 import ContextStore from '../ContextStore';
 import {Stepper, Step, StepLabel, Grid, Typography, Paper, Button, Dialog, DialogContent,
-    DialogActions, DialogTitle, TextField, FormControlLabel, Checkbox} from '@material-ui/core';
+    DialogActions, DialogTitle, TextField, FormControlLabel, Checkbox, AppBar, Toolbar} from '@material-ui/core';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import StarRatings from 'react-star-ratings';
 import {Call, LocationOn} from '@material-ui/icons';
@@ -63,6 +63,17 @@ class Choose extends Component {
         return(
             <MuiThemeProvider theme={theme}>
             <Grid container>
+            <AppBar position="static" elevation={0}>
+                    <Toolbar>
+                        <Grid container direction="row" justify="flex-start">
+                            <Grid item>
+                                <Typography variant="h6" color="secondary" >
+                                Settlemycar
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                    </Toolbar>
+                </AppBar>
                 <Grid container style={{backgroundColor: "#f88339"}}>
                     <Grid item style={{padding: "40px"}}>
                         <Typography variant="h4" color="secondary">Thank You, Quote Accepted</Typography>
@@ -142,59 +153,96 @@ class Choose extends Component {
                         </Grid>
                     </Grid>
                 </Grid>
-                <Dialog 
-                    open={this.state.open}
-                    onClose={this.handleClose}
-                >
-                    <DialogTitle>Submit Feedback</DialogTitle>
-                    <DialogContent>
-                        <Grid container direction="column" spacing={40} style={{width: "500px", padding: "20px"}}>
-                            <Typography>Your Rating out of 5</Typography>
-                            <StarRatings   
-                                rating={0}     
-                                starRatedColor="#f88339" 
-                                numberOfStars={5} 
-                                starDimension="20px"
-                                starSpacing="1px"
-                            />
-                            <TextField 
-                                placeholder="What was the final price?"
-                                fullWidth
-                                margin="dense"
-                            />
-                            <TextField 
-                                placeholder="Your Feedback"
-                                fullWidth
-                                margin="dense"
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                    color="primary"
-                                    />
-                                }
-                                label="I recommended this garage"
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                    color="primary"
-                                    />
-                                }
-                                label="Share review on Facebook"
-                            />
-                        </Grid>
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={this.handleClose} color="primary">
-                            Cancel
-                        </Button>
-                        <Button onClick={this.handleClose} color="primary">
-                            Submit
-                        </Button>
-                    </DialogActions>
-                </Dialog>
+                <hr style={{width: "100vw"}}/>
+                <Grid container direction="row" justify="space-evenly" alignItems="flex-start" style={{paddingTop: "50px", paddingBottom: "50px"}}>
+                    <Grid item>
+                        <Typography variant="subtitle2" style={{marginBottom: "10px"}}>
+                        Top Locations
+                        </Typography>
+                        <Typography variant="body1">
+                        Locations
+                        </Typography>
+                        <Typography variant="body1">
+                        Locations
+                        </Typography>
+                        <Typography variant="body1">
+                        Locations
+                        </Typography>
+                        <Typography variant="body1">
+                        Locations
+                        </Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="subtitle2" style={{marginBottom: "10px"}}>
+                        Top Services
+                        </Typography>
+                        <Typography variant="body1">
+                        Services
+                        </Typography>
+                        <Typography variant="body1">
+                        Services
+                        </Typography>
+                        <Typography variant="body1">
+                        Services
+                        </Typography>
+                        <Typography variant="body1">
+                        Services
+                        </Typography>
+                    </Grid>
+                </Grid>
             </Grid>
+            <Dialog 
+                open={this.state.open}
+                onClose={this.handleClose}
+            >
+                <DialogTitle>Submit Feedback</DialogTitle>
+                <DialogContent>
+                    <Grid container direction="column" spacing={40} style={{width: "500px", padding: "20px"}}>
+                        <Typography>Your Rating out of 5</Typography>
+                        <StarRatings   
+                            rating={0}     
+                            starRatedColor="#f88339" 
+                            numberOfStars={5} 
+                            starDimension="20px"
+                            starSpacing="1px"
+                        />
+                        <TextField 
+                            placeholder="What was the final price?"
+                            fullWidth
+                            margin="dense"
+                        />
+                        <TextField 
+                            placeholder="Your Feedback"
+                            fullWidth
+                            margin="dense"
+                        />
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                color="primary"
+                                />
+                            }
+                            label="I recommended this garage"
+                        />
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                color="primary"
+                                />
+                            }
+                            label="Share review on Facebook"
+                        />
+                    </Grid>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={this.handleClose} color="primary">
+                        Cancel
+                    </Button>
+                    <Button onClick={this.handleClose} color="primary">
+                        Submit
+                    </Button>
+                </DialogActions>
+            </Dialog>
             </MuiThemeProvider>
         );
     }

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core/styles';
-import { Grid, Typography, Paper, Button } from '@material-ui/core';
+import { Grid, Typography, Paper, Button, AppBar, Toolbar } from '@material-ui/core';
 import Shops from '../assets/Garages.json';
 import StarRatings from 'react-star-ratings';
 import ContextStore from '../ContextStore';
@@ -10,10 +10,10 @@ const styles = {
     root: {
         height: "100vh",
         width: "100vw",
-        overflow: "auto",
+        overflowY: "auto",
+        overflowX: "hidden",
         flexDirection: "column",
         display: "flex",
-        backgroundColor: "#f88339"
     },
     paper: {
         margin: "10px 10px 0px 10px",
@@ -47,6 +47,17 @@ class Garages extends Component {
 
         return(
             <Grid className={classes.root}>
+                <AppBar position="static" elevation={0}>
+                    <Toolbar>
+                        <Grid container direction="row" justify="flex-start">
+                            <Grid item>
+                                <Typography variant="h6" color="secondary" >
+                                Settlemycar
+                                </Typography>
+                            </Grid>
+                        </Grid>
+                    </Toolbar>
+                </AppBar>
                 {Shops.map(shop => {
                     return(
                         <Paper className={classes.paper} key={shop.name}>
@@ -101,6 +112,43 @@ class Garages extends Component {
                         </Paper>
                     );
                 })}
+                <hr style={{width: "100%", marginTop: "40px"}}/>
+                <Grid container direction="row" justify="space-evenly" alignItems="flex-start" style={{paddingTop: "50px", paddingBottom: "50px"}}>
+                    <Grid item>
+                        <Typography variant="subtitle2" style={{marginBottom: "10px"}}>
+                        Top Locations
+                        </Typography>
+                        <Typography variant="body1">
+                        Locations
+                        </Typography>
+                        <Typography variant="body1">
+                        Locations
+                        </Typography>
+                        <Typography variant="body1">
+                        Locations
+                        </Typography>
+                        <Typography variant="body1">
+                        Locations
+                        </Typography>
+                    </Grid>
+                    <Grid item>
+                        <Typography variant="subtitle2" style={{marginBottom: "10px"}}>
+                        Top Services
+                        </Typography>
+                        <Typography variant="body1">
+                        Services
+                        </Typography>
+                        <Typography variant="body1">
+                        Services
+                        </Typography>
+                        <Typography variant="body1">
+                        Services
+                        </Typography>
+                        <Typography variant="body1">
+                        Services
+                        </Typography>
+                    </Grid>
+                </Grid>
             </Grid>
         );
     }
